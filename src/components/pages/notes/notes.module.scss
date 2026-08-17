@@ -1,0 +1,493 @@
+.notes {
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px 40px;
+  box-sizing: border-box;
+
+  background: #fafafa;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+
+  p {
+    margin: 0;
+    color: #71717a;
+    font-size: 14px;
+  }
+
+  h1 {
+    margin: 4px 0 0;
+    color: #18181b;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+  }
+}
+
+.newButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #18181b;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    background: #27272a;
+    transform: translateY(-1px);
+  }
+}
+
+.notesLayout {
+  display: grid;
+  grid-template-columns: 330px minmax(0, 1fr);
+
+  min-height: calc(100vh - 160px);
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.06);
+}
+
+.notesSidebar {
+  min-width: 0;
+
+  padding: 18px;
+
+  background: #fcfcfc;
+
+  border-right: 1px solid #eeeeee;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 44px;
+
+  padding: 0 13px;
+  margin-bottom: 18px;
+
+  box-sizing: border-box;
+
+  border-radius: 10px;
+
+  background: #f4f4f5;
+
+  color: #71717a;
+
+  input {
+    flex: 1;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #18181b;
+
+    font-size: 13px;
+
+    &::placeholder {
+      color: #a1a1aa;
+    }
+  }
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-bottom: 24px;
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+
+    padding: 10px 11px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #71717a;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+    span {
+      flex: 1;
+      text-align: left;
+    }
+
+    b {
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    &:hover {
+      background: #f4f4f5;
+      color: #18181b;
+    }
+  }
+}
+
+.categoryActive {
+  background: #18181b !important;
+  color: #ffffff !important;
+}
+
+.notesListHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  padding: 0 5px;
+
+  > span {
+    color: #a1a1aa;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: transparent;
+    color: #71717a;
+
+    cursor: pointer;
+
+    &:hover {
+      background: #f4f4f5;
+      color: #18181b;
+    }
+  }
+}
+
+.notesList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  overflow-y: auto;
+
+  max-height: calc(100vh - 350px);
+}
+
+.noteItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  width: 100%;
+
+  padding: 12px 10px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+
+  &:hover {
+    background: #f4f4f5;
+  }
+}
+
+.activeNote {
+  background: #eeeeee;
+}
+
+.noteIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #52525b;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.noteItemInfo {
+  flex: 1;
+  min-width: 0;
+
+  strong {
+    display: block;
+
+    overflow: hidden;
+
+    margin-bottom: 4px;
+
+    color: #27272a;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  p {
+    overflow: hidden;
+
+    margin: 0 0 5px;
+
+    color: #71717a;
+
+    font-size: 11px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  span {
+    color: #a1a1aa;
+    font-size: 10px;
+  }
+}
+
+.editor {
+  min-width: 0;
+
+  padding: 22px 32px;
+
+  background: #ffffff;
+}
+
+.editorTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.editorStatus {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #71717a;
+  font-size: 12px;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+}
+
+.moreButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #71717a;
+
+  cursor: pointer;
+
+  &:hover {
+    background: #f4f4f5;
+    color: #18181b;
+  }
+}
+
+.editorContent {
+  max-width: 850px;
+
+  padding: 40px 10px;
+
+  .noteMeta {
+    display: flex;
+    gap: 8px;
+
+    margin-bottom: 14px;
+
+    color: #a1a1aa;
+    font-size: 12px;
+  }
+
+  h2 {
+    margin: 0 0 24px;
+
+    color: #18181b;
+
+    font-size: 34px;
+    font-weight: 700;
+
+    letter-spacing: -0.9px;
+  }
+
+  > p {
+    margin: 0 0 18px;
+
+    color: #52525b;
+
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  h3 {
+    margin: 32px 0 14px;
+
+    color: #18181b;
+
+    font-size: 20px;
+  }
+}
+
+.callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  margin-top: 28px;
+  padding: 16px;
+
+  border-radius: 12px;
+
+  background: #f4f4f5;
+
+  color: #52525b;
+
+  svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  p {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  strong {
+    color: #18181b;
+  }
+}
+
+@media (max-width: 900px) {
+  .notes {
+    padding: 24px;
+  }
+
+  .notesLayout {
+    grid-template-columns: 270px minmax(0, 1fr);
+  }
+
+  .editor {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .notesLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .notesSidebar {
+    border-right: none;
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  .notesList {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .notes {
+    padding: 20px;
+  }
+
+  .pageHeader {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .newButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .editorContent {
+    padding: 28px 0;
+
+    h2 {
+      font-size: 27px;
+    }
+  }
+}

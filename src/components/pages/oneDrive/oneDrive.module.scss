@@ -1,0 +1,309 @@
+.oneDrive {
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px 40px;
+  box-sizing: border-box;
+
+  background: #fafafa;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+
+  h1 {
+    margin: 4px 0 0;
+    color: #18181b;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+  }
+}
+
+.subtitle {
+  margin: 0;
+  color: #71717a;
+  font-size: 14px;
+}
+
+.uploadButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #18181b;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    background: #27272a;
+    transform: translateY(-1px);
+  }
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  height: 48px;
+
+  padding: 0 16px;
+  margin-bottom: 36px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  color: #71717a;
+
+  input {
+    flex: 1;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #18181b;
+    font-size: 14px;
+
+    &::placeholder {
+      color: #a1a1aa;
+    }
+  }
+}
+
+.foldersSection,
+.filesSection {
+  margin-bottom: 36px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 16px;
+
+  h2 {
+    margin: 0;
+    color: #18181b;
+    font-size: 18px;
+    font-weight: 650;
+  }
+
+  button {
+    padding: 4px;
+
+    border: none;
+    background: transparent;
+
+    color: #71717a;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    &:hover {
+      color: #18181b;
+    }
+  }
+}
+
+.folders {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.folder {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 20px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  color: #18181b;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  svg {
+    flex-shrink: 0;
+    color: #71717a;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  strong {
+    font-size: 15px;
+  }
+
+  span {
+    color: #71717a;
+    font-size: 13px;
+  }
+}
+
+.files {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.file {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 18px;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateX(3px);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.07);
+  }
+}
+
+.fileIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: #f4f4f5;
+  color: #52525b;
+}
+
+.fileInfo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+
+  min-width: 0;
+
+  strong {
+    overflow: hidden;
+
+    color: #18181b;
+    font-size: 14px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  span {
+    color: #71717a;
+    font-size: 12px;
+  }
+}
+
+.moreButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #71717a;
+
+  cursor: pointer;
+
+  &:hover {
+    background: #f4f4f5;
+    color: #18181b;
+  }
+}
+
+@media (max-width: 900px) {
+  .oneDrive {
+    padding: 24px;
+  }
+
+  .folders {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .oneDrive {
+    padding: 20px;
+  }
+
+  .top {
+    align-items: flex-start;
+    gap: 16px;
+    flex-direction: column;
+  }
+
+  .uploadButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
