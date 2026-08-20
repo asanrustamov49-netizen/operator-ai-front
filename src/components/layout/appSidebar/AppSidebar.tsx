@@ -28,7 +28,7 @@ export function AppSidebar() {
   return (
     <Sidebar className={scss.main}>
       <SidebarHeader className={scss.header}>
-        <h2>Operator AI</h2>
+        <h2>Actions</h2>
       </SidebarHeader>
 
       <SidebarContent className={scss.content}>

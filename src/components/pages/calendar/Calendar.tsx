@@ -1,3 +1,5 @@
+"use client"
+import { useRouter } from "next/navigation";
 import scss from "./calendar.module.scss";
 
 const tasks = [
@@ -30,6 +32,7 @@ const tasks = [
 const hours = Array.from({ length: 12 }, (_, index) => index + 8);
 
 const Calendar = () => {
+  const {push} = useRouter()
   return (
     <main className={scss.calendar}>
       <div className={scss.top}>

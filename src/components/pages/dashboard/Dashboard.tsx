@@ -1,3 +1,4 @@
+"use client";
 import {
   CalendarDays,
   CheckSquare,
@@ -9,6 +10,7 @@ import {
 } from "lucide-react";
 
 import scss from "./dashboard.module.scss";
+import { useRouter } from "next/navigation";
 
 const stats = [
   {
@@ -105,6 +107,7 @@ const tasks = [
 ];
 
 const Dashboard = () => {
+  const { push } = useRouter();
   return (
     <main className={scss.dashboard}>
       <header className={scss.header}>
@@ -153,7 +156,10 @@ const Dashboard = () => {
               <span>Your upcoming events</span>
             </div>
 
-            <button className={scss.viewButton}>
+            <button
+              onClick={() => push("/calendar")}
+              className={scss.viewButton}
+            >
               View calendar
               <MoveRight size={16} />
             </button>
@@ -190,7 +196,7 @@ const Dashboard = () => {
               <strong>2 unfinished tasks</strong> today.
             </p>
 
-            <button>
+            <button onClick={() => push("/aiChat")}>
               Ask Operator AI
               <MoveRight size={16} />
             </button>
@@ -209,7 +215,7 @@ const Dashboard = () => {
               <span>Latest messages from Gmail</span>
             </div>
 
-            <button className={scss.viewButton}>
+            <button onClick={() => push("/gmail")} className={scss.viewButton}>
               Open Gmail
               <MoveRight size={16} />
             </button>
@@ -244,7 +250,7 @@ const Dashboard = () => {
               <span>Tasks from your workspace</span>
             </div>
 
-            <button className={scss.viewButton}>
+            <button onClick={() => push("/tasks")} className={scss.viewButton}>
               View all
               <MoveRight size={16} />
             </button>
