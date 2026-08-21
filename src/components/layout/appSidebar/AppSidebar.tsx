@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import {
   Bell,
   BotMessageSquare,
@@ -6,10 +7,13 @@ import {
   CheckSquare,
   Cloud,
   LayoutDashboard,
+  LogIn,
   Mail,
   NotebookPen,
   Settings,
+  UserPlus,
 } from "lucide-react";
+
 import {
   Sidebar,
   SidebarContent,
@@ -20,15 +24,22 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
-import scss from "./appSidebar.module.scss";
 import { usePathname } from "next/navigation";
+import scss from "./appSidebar.module.scss";
 
 export function AppSidebar() {
   const pathname = usePathname();
+
   return (
     <Sidebar className={scss.main}>
       <SidebarHeader className={scss.header}>
-        <h2>Actions</h2>
+        <div className={scss.logo}>
+          <div className={scss.logoIcon}>
+            <BotMessageSquare size={18} />
+          </div>
+
+          <h2>Actions</h2>
+        </div>
       </SidebarHeader>
 
       <SidebarContent className={scss.content}>
@@ -38,7 +49,6 @@ export function AppSidebar() {
               <SidebarMenuButton
                 className={pathname === "/" ? scss.active : scss.button}
                 render={<a href="/" />}
-                // isActive
               >
                 <LayoutDashboard size={19} />
                 <span>Dashboard</span>
@@ -100,7 +110,11 @@ export function AppSidebar() {
 
           <SidebarMenuItem>
             <SidebarMenuButton
-              className={`${scss.button} ${scss.aiButton}`}
+              className={
+                pathname === "/aiChat"
+                  ? `${scss.aiButton} ${scss.aiActive}`
+                  : scss.aiButton
+              }
               render={<a href="/aiChat" />}
             >
               <BotMessageSquare size={19} />
@@ -111,7 +125,7 @@ export function AppSidebar() {
       </SidebarContent>
 
       <SidebarFooter className={scss.footer}>
-        <SidebarMenu>
+        <SidebarMenu className={scss.bottomMenu}>
           <SidebarMenuItem>
             <SidebarMenuButton
               className={
@@ -134,6 +148,20 @@ export function AppSidebar() {
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
+
+        <div className={scss.authDivider} />
+
+        <div className={scss.authButtons}>
+          <a href="/login" className={scss.signIn}>
+            <LogIn size={18} />
+            <span>Sign in</span>
+          </a>
+
+          <a href="/register" className={scss.signUp}>
+            <UserPlus size={18} />
+            <span>Create account</span>
+          </a>
+        </div>
       </SidebarFooter>
     </Sidebar>
   );
